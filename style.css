@@ -29,7 +29,9 @@ body {
     margin: 0 auto;
 }
 
-
+select {
+  border-radius: 3px;
+}
 
 .color-scheme-btn {
     padding: 10px 4px;
