@@ -47,8 +47,15 @@ function getColorScheme(hex) {
     method: 'GET'
   })
     .then(res => res.json())
-    .then(data => { console.log(data)
-      
+    .then(data => { 
+      const colorArr = data.colors;
+      colorArr.forEach(color => { 
+        const hex = color.hex.value  
+        document.querySelector('.colors-container').innerHTML
+          += `<div class="color" style="background-color: ${hex}">a</div>`
+      })
+
+      console.log(data.colors[0].hex.value)
     })
 }
 

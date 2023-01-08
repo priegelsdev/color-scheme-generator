@@ -38,3 +38,12 @@ select {
     border: 1px solid gray;
     border-radius: 4px;
 }
+
+.colors-container {
+  display: flex;
+}
+
+.color {
+  height: 70vh;
+  width: 100%;
+}
