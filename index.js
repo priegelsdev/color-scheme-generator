@@ -21,10 +21,10 @@
 // initialization of variables to be used
 
 let hexValue;
+let jsonData;
 
   document.addEventListener('click', function(e) {
     if (e.target.tagName === 'BUTTON') {
-      console.log(document.querySelector('input').value)
       renderColors()
     } else if (e.target.tagName === 'INPUT') {
       getHex()
@@ -43,22 +43,42 @@ function getHex() {
 // function to send color pick to API and retrieve color scheme
 
 function getColorScheme(hex) {
-  console.log('test')
-
-
   fetch(`https://www.thecolorapi.com/scheme?hex=${hex}`, {
     method: 'GET'
   })
     .then(res => res.json())
     .then(data => { 
-      const colorArr = data.colors;
+/*       const colorArr = data.colors;
+      let colorsHtml = document.querySelector('.colors-container').innerHTML
+      console.log(colorsHtml)
       colorArr.forEach(color => { 
         const hex = color.hex.value  
+        
         document.querySelector('.colors-container').innerHTML
           += `<div class="color" style="background-color: ${hex}">a</div>`
       })
+      console.log(colorsHtml) */
+
+      jsonData = data;
+      placeHolder();
     })
 }
+
+// placeholder function
+
+function placeHolder() {
+  const colorArr = jsonData.colors;
+      let colorsHtml = document.querySelector('.colors-container')
+      console.log(colorsHtml)
+      colorArr.forEach(color => { 
+        const hex = color.hex.value  
+        
+        colorsHtml.innerHTML 
+          += `<div class="color" style="background-color: ${hex}">a</div>`
+      })
+      console.log(colorsHtml)
+}
+
 
 // function to render retrieved color scheme 
 
