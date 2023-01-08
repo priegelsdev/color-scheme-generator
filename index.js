@@ -2,9 +2,9 @@
    API: https://www.thecolorapi.com/
    
    fill select menu with available color schemes
-   
+   /scheme{?hex,rgb,hsl,cmyk,format,mode,count}
 
-   fill select menu with color schemes
+   fill select menu with color schemes (Choices: monochrome monochrome-dark monochrome-light analogic complement analogic-complement triad quad)
    */
 
 
