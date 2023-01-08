@@ -25,25 +25,17 @@ let jsonData;
 
   document.addEventListener('click', function(e) {
     if (e.target.tagName === 'BUTTON') {
-      
-      renderColors()
-    } else if (e.target.tagName === 'INPUT') {
-      getHex()
+      getHexCodes()
     }
 
   })
 
 // function to retrieve hex code from input and save to variable for later param use
-    
-function getHex() {
-  hexValue = document.querySelector('input').value.substring(1);
-  
-  return hexValue
-}
+
 
 // function to send color pick to API and retrieve color scheme
 
-function getColorScheme(hex) {
+function getJsonScheme(hex) {
   fetch(`https://www.thecolorapi.com/scheme?hex=${hex}`, {
     method: 'GET'
   })
@@ -61,13 +53,13 @@ function getColorScheme(hex) {
       console.log(colorsHtml) */
 
       jsonData = data;
-      placeHolder();
+      render();
     })
 }
 
-// placeholder function
+// function to render out hex codes to colors
 
-function placeHolder() {
+function render() {
   const colorArr = jsonData.colors;
   let colorsHtml = document.querySelector('.colors-container')
   colorsHtml.innerHTML = ''
@@ -82,11 +74,11 @@ function placeHolder() {
 }
 
 
-// function to render retrieved color scheme 
+// function to get to be rendered hex codes
 
-function renderColors() {
-  getHex();
-  getColorScheme(hexValue);
+function getHexCodes() {
+  hexValue = document.querySelector('input').value.substring(1);
+  getJsonScheme(hexValue);
 }
 
 
