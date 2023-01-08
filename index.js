@@ -25,6 +25,7 @@ let jsonData;
 
   document.addEventListener('click', function(e) {
     if (e.target.tagName === 'BUTTON') {
+      
       renderColors()
     } else if (e.target.tagName === 'INPUT') {
       getHex()
@@ -68,15 +69,16 @@ function getColorScheme(hex) {
 
 function placeHolder() {
   const colorArr = jsonData.colors;
-      let colorsHtml = document.querySelector('.colors-container')
-      console.log(colorsHtml)
-      colorArr.forEach(color => { 
-        const hex = color.hex.value  
-        
-        colorsHtml.innerHTML 
-          += `<div class="color" style="background-color: ${hex}">a</div>`
-      })
-      console.log(colorsHtml)
+  let colorsHtml = document.querySelector('.colors-container')
+  colorsHtml.innerHTML = ''
+  
+  colorArr.forEach(color => { 
+    const hex = color.hex.value  
+    
+    colorsHtml.innerHTML 
+      += `<div class="color" style="background-color: ${hex}">a</div>`
+  })
+
 }
 
 
