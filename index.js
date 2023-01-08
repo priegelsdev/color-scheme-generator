@@ -24,7 +24,10 @@ let hexValue;
 
   document.addEventListener('click', function(e) {
     if (e.target.tagName === 'BUTTON') {
+      console.log(document.querySelector('input').value)
       renderColors()
+    } else if (e.target.tagName === 'INPUT') {
+      getHex()
     }
 
   })
@@ -40,7 +43,7 @@ function getHex() {
 // function to send color pick to API and retrieve color scheme
 
 function getColorScheme(hex) {
-  getHex();
+  console.log('test')
 
 
   fetch(`https://www.thecolorapi.com/scheme?hex=${hex}`, {
@@ -54,14 +57,13 @@ function getColorScheme(hex) {
         document.querySelector('.colors-container').innerHTML
           += `<div class="color" style="background-color: ${hex}">a</div>`
       })
-
-      console.log(data.colors[0].hex.value)
     })
 }
 
 // function to render retrieved color scheme 
 
 function renderColors() {
+  getHex();
   getColorScheme(hexValue);
 }
 
