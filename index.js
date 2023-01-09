@@ -68,7 +68,7 @@ function render() {
     const hex = color.hex.value  
     
     colorsHtml.innerHTML 
-      += `<div class="color" style="background-color: ${hex}">a</div>`
+      += `<div class="color" style="background-color: ${hex}"></div>`
   })
 
 }
