@@ -2,9 +2,9 @@
     box-sizing: border-box;
 }
 
-body {
-    width: 70%;
-    margin: 5em auto;
+main {
+  width: 70%;
+  margin: 5em auto;
 }
 
 .color-pick-container {
@@ -36,4 +36,14 @@ select {
 .color {
   height: 70vh;
   width: 100%;
+}
+
+.colors-val-container {
+  display: flex;
+}
+
+.color-value {
+  height: 70vh;
+  width: 100%;
+  text-align: center;
 }

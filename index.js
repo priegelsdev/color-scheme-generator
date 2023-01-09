@@ -53,12 +53,16 @@ function render() {
   const colorArr = jsonData.colors;
   let colorsHtml = document.querySelector('.colors-container')
   colorsHtml.innerHTML = ''
+  let colorsValHtml = document.querySelector('.colors-val-container')
+  colorsValHtml.innerHTML = ''
   
   colorArr.forEach(color => { 
     const hex = color.hex.value  
     
     colorsHtml.innerHTML 
       += `<div class="color" style="background-color: ${hex}"></div>`
+    colorsValHtml.innerHTML 
+      += `<p class="color-value">${hex}</p>`
   })
 
 }
